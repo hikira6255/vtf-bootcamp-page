@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Associate Bootcamp | VTF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0f172a; 
+            --primary-blue: #1d4ed8; 
+            --primary-blue-hover: #1e40af;
+            --bg-light: #f8fafc; 
+            --card-bg: #ffffff;
+            --text-main: #334155; 
+            --text-heading: #0f172a;
+            --border-color: #e2e8f0;
+            --accent-color: #0ea5e9; 
+            --badge-bg: #e0f2fe;
+            --badge-text: #0369a1;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--text-heading);
+            font-weight: 700;
+            margin-top: 0;
+        }
+
+        /* Top Announcement Banner */
+        .promo-banner {
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-color));
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Header */
+        header {
+            text-align: center;
+            padding: 70px 20px;
+            background-color: var(--primary-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--accent-color);
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 3em;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.25em;
+            max-width: 650px;
+            margin: 0 auto 25px auto;
+            color: #cbd5e1;
+            font-weight: 400;
+        }
+
+        /* Hero Quick Tags */
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .hero-tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 0.9em;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.2em;
+            font-weight: 800;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-blue);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-blue);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-favorite {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-blue);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-card h2 {
+            font-size: 1.6em;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            font-size: 2.8em;
+            font-weight: 800;
+            color: var(--text-heading);
+            margin: 15px 0 5px 0;
+            text-decoration: line-through; /* Striking out the original price */
+            color: #94a3b8; 
+        }
+
+        /* Flashy Discount Callout */
+        .discount-callout {
+            color: #ffffff;
+            font-size: 1.1em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: -5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse-orange 2s infinite;
+            border: 2px solid #fde68a;
+        }
+
+        .discount-math {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #16a34a; /* Success green */
+            margin-bottom: 20px;
+            background: #f0fdf4;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+        /* Rhythm Cards */
+        .rhythm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .rhythm-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--accent-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .rhythm-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Curriculum Flexbox */
+        .curriculum-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .week-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            flex: 1 1 340px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .week-card { max-width: calc(50% - 13px); }
+        }
+
+        @media (min-width: 1100px) {
+            .week-card { max-width: calc(33.333% - 17px); }
+        }
+
+        .week-title {
+            color: var(--primary-blue);
+            font-size: 1.15em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .week-card ul {
+            margin: 0 0 20px 0;
+            padding-left: 0;
+            list-style: none;
+            flex-grow: 1;
+        }
+
+        .week-card li {
+            margin-bottom: 15px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95em;
+        }
+
+        .week-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .week-card li strong {
+            color: var(--text-heading);
+            font-weight: 600;
+        }
+
+        /* Skill Pills */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .skill-tag {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 0.8em;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        /* Outcomes Section */
+        .outcomes {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .outcomes ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .outcomes li {
+            background: var(--bg-light);
+            padding: 20px 24px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            border-left: 4px solid var(--primary-blue);
+            transition: transform 0.2s ease;
+        }
+        
+        .outcomes li:hover {
+            transform: translateX(5px);
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            padding: 18px 40px;
+            font-size: 1.15em;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(29, 78, 216, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(29, 78, 216, 0.4);
+        }
+
+        .bottom-cta {
+            text-align: center;
+            margin: 20px 0 80px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="promo-banner">
+        🎓 Special Offer: Up to 50% Off for Verified University Students!
+    </div>
+
+    <header>
+        <h1>Cybersecurity Associate Bootcamp </h1>
+        <p>Skip the theory-only classes. Build a real-world portfolio, practice in hands-on labs, and get job-ready with dedicated career coaching. </p>
+        <div class="hero-tags">
+            <div class="hero-tag">💼 Job-Ready Portfolio</div>
+            <div class="hero-tag">🛡️ VTF Certificate</div>
+            <div class="hero-tag">🤝 Mock Interviews</div>
+        </div>
+        <a href="https://forms.gle/G1pJHo6wmoDMoyAj9" target="_blank" class="cta-button">Register Today</a>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <h2 class="section-title">Choose Your Track</h2>
+            <div class="pricing-section">
+                <div class="pricing-card">
+                    <h2>Foundations Track</h2>
+                    <div class="price">$189.99 </div>
+                    <div class="discount-callout">🔥 50% Student Discount 🔥</div>
+                    <br>
+                    <div class="discount-math">Only $94.99 with verified Student ID!</div>
+                    <p style="color: var(--text-main); font-weight: 500;">4-Week Program Structure </p>
+                    <p style="font-size: 0.9em; color: #64748b;">Perfect for beginners building their brand and understanding the cybersecurity landscape.</p>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="student-favorite">Student Favorite</div>
+                    <h2>Advanced Track</h2>
+                    <div class="price">$229.99 </div>
+                    <div class="discount-callout">🔥 50% Student Discount 🔥</div>
+                    <br>
+                    <div class="discount-math">Only $114.99 with verified Student ID!</div>
+                    <p style="color: var(--text-main); font-weight: 500;">8-Week Program Structure </p>
+                    <p style="font-size: 0.9em; color: #64748b;">The complete package. Adds deep-dive network security labs and advanced breach simulations.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Your Weekly Rhythm </h2>
+            <div class="rhythm-grid">
+                <div class="rhythm-card">
+                    <h3>💻 Mondays: Technical</h3>
+                    <p><strong>Cybersec Hands-on :</strong> Instructor-led session introducing core concepts and executing hands-on labs. </p>
+                </div>
+                <div class="rhythm-card">
+                    <h3>🗣️ Wednesdays: Practical</h3>
+                    <p><strong>Team Presentations :</strong> Practical activity or cybersecurity scenario, plus building your communication skills. </p>
+                </div>
+                <div class="rhythm-card">
+                    <h3>🚀 Fridays: Career</h3>
+                    <p><strong>Career Development :</strong> Dedicated sessions for professional branding, networking, and job-readiness. </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Track 1: Foundations (Weeks 1-4)</h2>
+            <div class="curriculum-grid">
+                <div class="week-card">
+                    <div class="week-title">Week 1: Cyber Landscape </div>
+                    <ul>
+                        <li><strong>Technical:</strong> Introduction to Cybersecurity , Security Operations Center (SOC) overview , and Foundations of Operationalizing MITRE ATT&CK. </li>
+                        <li><strong>Career:</strong> Entry-level cybersecurity roles and mapping your background to cyber roles. </li>
+                    </ul>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SOC Basics</span>
+                        <span class="skill-tag">MITRE ATT&CK</span>
+                    </div>
+                </div>
+                <div class="week-card">
+                    <div class="week-title">Week 2: Personal Branding </div>
+                    <ul>
+                        <li><strong>Technical:</strong> Application of MITRE ATT&CK Navigator and mapping attack behaviors. </li>
+                        <li><strong>Career:</strong> Resume & LinkedIn Build Lab and Professional Networking in Cybersecurity. </li>
+                    </ul>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ATT&CK Navigator</span>
+                        <span class="skill-tag">Resume Optimization</span>
+                    </div>
+                </div>
+                <div class="week-card">
+                    <div class="week-title">Week 3: Associate Skills </div>
+                    <ul>
+                        <li><strong>Technical:</strong> Security Operations & Risk Concepts and Top ATT&CK Techniques. </li>
+                        <li><strong>Career:</strong> Communicating Cybersecurity Skills and interview prep.</li>
+                    </ul>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Risk Concepts</span>
+                        <span class="skill-tag">Threat Detection</span>
+                    </div>
+                </div>
+                <div class="week-card">
+                    <div class="week-title">Week 4: Capstone Project </div>
+                    <ul>
+                        <li><strong>Technical:</strong> Cybersecurity Project Guidance and Foundations of Purple Teaming. </li>
+                        <li><strong>Career:</strong> Interview Preparation & Project Presentation. </li>
+                    </ul>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Portfolio Project</span>
+                        <span class="skill-tag">Purple Teaming</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Track 2: Advanced (Weeks 5-8) </h2>
+            <div class="curriculum-grid">
+                <div class="week-card">
+                    <div class="week-title">Week 5: Network Fundamentals </div>
+                    <ul>
+                        <li><strong>Technical:</strong> ECC1 - Network Security Fundamentals and leveraging Breach and attack simulation. </li>
+                        <li><strong>Career:</strong> Linkedin Profile Enhancement and Resume Enhancement. </li>
+                    </ul>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Network Architecture</span>
+                        <span class="skill-tag">Breach Simulation</span>
+                    </div>
+                </div>
+                <div class="week-card">
+                    <div class="week-title">Week 6: Admin Controls </div>
+                    <ul>
+                        <li><strong>Technical:</strong> ECC2 - Administrative Controls and Emulation Planning for Purple Teaming. </li>
+                        <li><strong>Career:</strong> Linkedin Profile Enhancement and Resume Enhancement. </li>
+                    </ul>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Security Policies</span>
+                        <span class="skill-tag">Emulation Planning</span>
+                    </div>
+                </div>
+                <div class="week-card">
+                    <div class="week-title">Week 7: Physical Controls </div>
+                    <ul>
+                        <li><strong>Technical:</strong> ECC3 - Physical Controls and Agentless Threat Emulation. </li>
+                        <li><strong>Career:</strong> Interview Preparation and Resume Enhancement (Final Draft). </li>
+                    </ul>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Physical Security</span>
+                        <span class="skill-tag">Threat Emulation</span>
+                    </div>
+                </div>
+                <div class="week-card">
+                    <div class="week-title">Week 8: Technical Controls </div>
+                    <ul>
+                        <li><strong>Technical:</strong> ECC4 - Technical Controls and Breach & Attack Simulation. </li>
+                        <li><strong>Career:</strong> Mock Interviews and LinkedIn Optimization (Final). </li>
+                    </ul>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Firewalls & IDS</span>
+                        <span class="skill-tag">Mock Interviews</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="outcomes">
+            <h2 class="section-title">What You Walk Away With </h2>
+            <p style="text-align: center; font-size: 1.1em; color: var(--text-main);">By the end of the program students will have: </p>
+            <ul>
+                <li>💼 Cybersecurity portfolio project </li>
+                <li>📄 Cybersecurity-focused resume </li>
+                <li>🌐 Optimized LinkedIn profile </li>
+                <li>🗺️ Understanding of cybersecurity career paths </li>
+                <li>🗣️ Confidence discussing cybersecurity topics </li>
+                <li>🎓 Cybersecurity Associate Certificate (VTF) </li>
+            </ul>
+        </section>
+
+        <div class="bottom-cta">
+            <a href="https://forms.gle/G1pJHo6wmoDMoyAj9" target="_blank" class="cta-button">Register Today</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
